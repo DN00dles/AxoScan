@@ -24,7 +24,22 @@ router.use(
 // post request
 //TODO: REVIEW THIS, WE MAY BE ABLE TO JUST REPLACE WITH MONGO DB
 //MODEL.CREATE(FILE)
-router.post('/upload', upload.single('file'), memorize, receiptController.uploadReceipt, searchArray.searched, receiptController.saveReceipt, (req, res) => res.status(200).json(res.locals.array));
+router.post('/upload', upload.single('file'), memorize, receiptController.uploadReceipt, 
+searchArray.searched, receiptController.saveReceipt, 
+(req, res) => res.status(200).json({
+  receiptArr: res.locals.array,
+  receipt: res.locals.receipt,
+}));
+
+// get request to get all receipts in collection
+router.get('/receipts', receiptController.getReceipts, (req, res) => {
+  res.status(200).json(res.locals.receiptArr);
+});
+
+// delete a receipt in collection
+router.delete('/receipts/:id', receiptController.deleteReceipt, (req, res) => {
+  res.status(200).json(res.locals.receipt)
+})
 
 // eslint-disable-next-line no-undef
 export default router;

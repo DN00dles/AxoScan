@@ -5,9 +5,13 @@ import '../styles/DragAndDrop.css';
 import axios from 'axios';
 const { Dragger } = Upload;
 import ProgressBar from './ProgressBar';
+import { useDispatch } from 'react-redux';
+import { addReceipt } from '../slices/receiptSlice';
+
 
 const DragAndDrop = ({ setHasUploaded, setLineItems }) => {
   const [fileList, setFileList] = useState([]);
+  const dispatch = useDispatch();
 
   const customRequest = async ({ file, onSuccess, onError }) => {
     const formData = new FormData();
@@ -21,10 +25,22 @@ const DragAndDrop = ({ setHasUploaded, setLineItems }) => {
       console.log('formData: ', formData);
       const response = await axios.post('/api/upload', formData);
       message.success(`${file.name}, file uploaded successfully`);
+
+      // RETURNED DATA WILL BE AN OBJECT WITH TWO PROPERTIES
+      // RECEIPT ARRAY (THE RECEIPTS ITEMIZED ARRAY)
+      // RECEIPT (THE DOCUMENT FOR THAT RECEIPT IN MONGO DB)
       console.log('Server Response: ', response.data);
+
+      // Update line items to plot pie chart
       if (response.data) {
-        setLineItems(response.data);
+        setLineItems(response.data.receiptArr);
       }
+
+      // Update receiptArr to show on profile
+      // if result is from the memorize middleware, then not re-added to DB
+      // therefore, will not be added to our current list of receipts
+      if (response.data.receipt) dispatch(addReceipt(response.data.receipt));
+
       setHasUploaded(true);
       onSuccess(response.data);
     } catch (error) {

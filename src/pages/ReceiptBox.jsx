@@ -1,18 +1,55 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { deleteReceipt } from '../slices/receiptSlice';
 
-function ReceiptBox({receiptName, receiptContent}){
+function ReceiptBox({receiptName, receiptContent, receiptId}){
   const [collapsed, setCollapsed] = useState(true);
+  const dispatch = useDispatch();
   const toggleCollapse = () => {
     setCollapsed(!collapsed);
   }
+
+  const Items = receiptContent.map((el, idx) => {
+    return (
+      <div key={idx}>
+        <p>type: {el.type}</p>
+        <p>price: {el.value}</p>
+      </div>
+    )
+  })
+
+  const handleDelete = async () => {
+    try {
+      await fetch(`/api/receipts/${receiptId}`, {
+        method: 'DELETE',
+      });
+    
+      dispatch(deleteReceipt(receiptId));
+
+    } catch (err) {
+        console.log(err);
+    }
+  }
+
   return(
 
-    <div>
-      <div onClick={toggleCollapse}>
+    <div className='receipt-box'>
+      <div onClick={toggleCollapse} style={{ cursor: 'pointer'}}>
         <h3>{receiptName}</h3>
-        <button>{collapsed ? 'Expand' : 'Collapse'}</button>
+        
+        <button style={{
+          fontSize: '16px',
+          padding: '8px, 12px',
+          backgroundColor: '#1809ff',
+          color: '#fff',
+          border: '20px',
+          cursor: 'pointer'
+        }}>
+          {collapsed ? 'Expand' : 'Collapse'}
+        </button>
+        <button onClick={handleDelete}>DELETE</button>
       </div>
-      {!collapsed && <p>{receiptContent}</p>}
+      {!collapsed && <div>{Items}</div>}
       
     </div>
   )

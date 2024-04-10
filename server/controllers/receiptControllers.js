@@ -1,6 +1,7 @@
 import fetch from 'node-fetch';
 import FormData from 'form-data';
 import Receipt from '../models/models.js';
+import { ObjectId } from 'mongodb';
 
 const receiptController = {
   async uploadReceipt(req, res, next) {
@@ -32,14 +33,54 @@ const receiptController = {
   },
 
   async saveReceipt(req, res, next) {
+    console.log('STARTING SAVERECEIPT');
     try {
       console.log(res.locals.array);
-      await Receipt.create({ fileName: res.locals.fileName, receipt: res.locals.array });
+      const response = await Receipt.create({ fileName: res.locals.fileName, receipt: res.locals.array });
+      res.locals.receipt = await response;
       return next();
     } catch (err) {
       return next({ log: 'Problem encountered sending information to Database', message: 'Problem with receipt response from DB' });
     }
   },
+
+  async getReceipts(req, res, next) {
+    try {
+      const response = await Receipt.find();
+
+      res.locals.receiptArr = response;
+
+      return next();
+
+    } catch (err) {
+      return next({
+        log: 'problem in getReceipts controller',
+        message: {err: 'cannot get receipts'}
+      })
+    }
+  },
+
+  async deleteReceipt(req, res, next) {
+    const id = req.params.id;
+
+    try {
+      const response = await Receipt.findByIdAndDelete(id);
+
+      res.locals.receipt = response;
+
+      console.log(res.locals.receipt);
+
+      return next();
+
+    } catch (err) {
+      return next({
+        log: 'problem in deleteReceipts controller',
+        message: {err: 'cannot delete receipt'}
+      })
+    }
+  }
 };
+
+
 
 export default receiptController;

@@ -2,6 +2,7 @@ import React from 'react';
 import { Card } from 'antd';
 import { GithubOutlined } from '@ant-design/icons';
 import '../styles/Footer.css';
+import { v4 as uuidv4 } from 'uuid';
 
 export default function Footer() {
   const names = ['Sofia', 'Aiden', 'Austin', 'Sean', 'Dylan'];
@@ -15,7 +16,7 @@ export default function Footer() {
   const res = [];
 
   for (let i = 0; i < names.length; i++) {
-    res.push(<Box key={crypto.randomUUID()} name={names[i]} url={urls[i]} />);
+    res.push(<Box key={uuidv4()} name={names[i]} url={urls[i]} />);
   }
   return (
     <div id="footer">

@@ -27,13 +27,15 @@
     "mongoose": "^8.3.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.22.3"
+    "react-router-dom": "^6.22.3",
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.24.4",
     "@babel/preset-react": "^7.24.1",
     "@testing-library/jest-dom": "^6.4.2",
     "@testing-library/react": "^14.3.0",
+    "@testing-library/user-event": "^14.5.2",
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
     "@vitejs/plugin-react": "^4.2.1",

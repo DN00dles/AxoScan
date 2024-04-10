@@ -13,7 +13,7 @@ export default function Home() {
   const total = lineItems.reduce((acc, curr) => acc + curr.value, 0);
   console.log(total);
   return (
-    <div className="home-container">
+    <div className="home-container" data-testid="home-component">
       <TitleHeader className="header" />
 
       {hasUploaded ? (

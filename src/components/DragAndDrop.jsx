@@ -5,6 +5,9 @@ import '../styles/DragAndDrop.css';
 import axios from 'axios';
 const { Dragger } = Upload;
 import ProgressBar from './ProgressBar';
+import React from 'react';
+import { v4 as uuidv4 } from 'uuid';
+
 
 const DragAndDrop = ({ setHasUploaded, setLineItems }) => {
   const [fileList, setFileList] = useState([]);
@@ -15,7 +18,6 @@ const DragAndDrop = ({ setHasUploaded, setLineItems }) => {
     console.log('file: ', file);
 
     // update url from backend
-    // WHY NOT JUST USE THE ACTION PROPERTY ON DRAGGER?
     // WHY NOT JUST USE THE ACTION PROPERTY ON DRAGGER?
     try {
       console.log('formData: ', formData);

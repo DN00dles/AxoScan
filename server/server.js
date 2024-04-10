@@ -5,7 +5,7 @@ import authRoutes from './routes/authRoutes.js';
 import uploadRoutes from './routes/uploadRoutes.js';
 import 'dotenv/config';
 import dotenv from 'dotenv';
-
+import cookieParser from 'cookie-parser';
 
 //use dotenv package to load the environment variables from the .env file
 dotenv.config();
@@ -28,6 +28,7 @@ mongoose.connect(process.env.MONGO_URI, {
 // handle parsing request body
 app.use(express.json());
 
+app.use(cookieParser());
 // favicon error handler
 app.get('/favicon.ico', (req, res) => res.status(204));
 

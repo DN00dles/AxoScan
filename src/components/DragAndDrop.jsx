@@ -16,6 +16,7 @@ const DragAndDrop = ({ setHasUploaded, setLineItems }) => {
 
     // update url from backend
     // WHY NOT JUST USE THE ACTION PROPERTY ON DRAGGER?
+    // WHY NOT JUST USE THE ACTION PROPERTY ON DRAGGER?
     try {
       console.log('formData: ', formData);
       const response = await axios.post('/api/upload', formData);

@@ -6,7 +6,6 @@ import '../styles/Home.css';
 import Footer from './Footer';
 import UploadButton from './UploadButton';
 import Pie from './Pie';
-import ProgressBar from './ProgressBar';
 
 export default function Home() {
   const [hasUploaded, setHasUploaded] = useState(false);
@@ -21,16 +20,16 @@ export default function Home() {
         <>
           <Pie lineItems={lineItems} />
 
-          <p style={{ marginBottom: '25px', fontSize: '24px' }}>Total: ${+total.toFixed(2)}</p>
+          <p style={{ margin: '0px, 0px', padding: '0px, 0px', fontSize: '20px' }}>Total: ${+total.toFixed(2)}</p>
 
-          <UploadButton style={{ marginRight: '10px' }} setHasUploaded={setHasUploaded} setLineItems={setLineItems} />
+          {/* <UploadButton style={{ marginRight: '10px' }} setHasUploaded={setHasUploaded} setLineItems={setLineItems} /> */}
         </>
       ) : (
-        <>
-          <Instructions />
-          <DragAndDrop setHasUploaded={setHasUploaded} setLineItems={setLineItems} />
-        </>
+        <Instructions />
       )}
+
+      <DragAndDrop setHasUploaded={setHasUploaded} setLineItems={setLineItems} />
+      
       <Footer />
     </div>
   );

@@ -25,7 +25,7 @@ const DemoPie = ({ lineItems }) => {
     },
   };
   return (
-    <div className="pie-container" style={{ height: '75%', marginLeft: '125px', marginTop: '25px' }}>
+    <div className="pie-container" style={{ height: '240px', marginLeft: '125px', marginTop: '25px' }}>
       <Pie {...config} />
     </div>
   );

@@ -37,6 +37,11 @@ export default function Home() {
     }
   }, [])
 
+  //is the session currently active???
+  // make a fetch request with the cookie
+  // if there is a session, then do nothing
+  // if there isn't, then redirect
+
 
   return (
     <div className="home-container">

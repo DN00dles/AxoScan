@@ -70,9 +70,9 @@ router.post("/login", async (req, res) => {
       );
       console.log('a token,', accessToken);
       res.cookie('JWT', accessToken);
-      res.status(200).json({a: 1});
+      res.status(200).json({login: 'success'});
     } else {
-      res.send("Invalid password");
+      res.status(200).json({login: 'fail'});
     }
   } catch (error) {
     res.status(500).send("Login failed");

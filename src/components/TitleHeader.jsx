@@ -15,7 +15,7 @@ const App = () => (
       justifyContent: 'center',
       alignItems: 'center',
     }}>
-    <h1>AxoScan</h1>
+<h1 style={{ fontSize: '24px' }}>AxoScan</h1>
     <Link id='link' to='/home'>Home</Link>
   </Card>
 );

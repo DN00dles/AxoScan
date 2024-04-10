@@ -37,10 +37,28 @@ export default function Home() {
     }
   }, [])
 
-  //is the session currently active???
-  // make a fetch request with the cookie
-  // if there is a session, then do nothing
-  // if there isn't, then redirect
+  // Check if the session is currently active
+  // Make a fetch request with the cookie
+  // If there is an active session, do nothing
+  // If there is no active session or the session is expired, redirect
+
+  const checkSession = async () => {
+    const response = await fetch('/auth/checkSession');
+    const data = await response.json();
+    if (!data.active) {
+      // Redirect to login page
+      window.location.href = '/login';
+    }
+  };
+
+
+  // Check session on page load
+  useEffect(() => {
+    checkSession();
+  }, []);
+
+
+  
 
 
   return (

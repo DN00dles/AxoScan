@@ -29,6 +29,21 @@ router.post("/signup", async (req, res) => {
   }
 });
 
+//check session token
+router.get("/checkSession", (req, res) => {
+  const token = req.cookies.JWT;
+  if (!token) {
+    return res.status(401).send("Access Denied").redirect('/login');
+  }
+  try {
+    const verified = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
+    res.status(200).send(verified);
+  } catch (error) {
+    res.status(400).send("Invalid Token");
+  }
+});
+
+
 /*
  createStudent(req, res, next) {
     console.log('Here!');

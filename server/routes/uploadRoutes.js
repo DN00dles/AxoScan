@@ -44,5 +44,7 @@ router.delete('/receipts/:id', receiptController.deleteReceipt, (req, res) => {
 })
 
 
+//check session
+
 // eslint-disable-next-line no-undef
 export default router;

@@ -1,8 +1,14 @@
 import express from 'express';
 import path from 'path';
 import {mongoose} from 'mongoose'
-import uploadRouter from './routes/authRoutes.js';
+import authRoutes from './routes/authRoutes.js';
+import uploadRoutes from './routes/uploadRoutes.js';
 import 'dotenv/config';
+import dotenv from 'dotenv';
+
+
+//use dotenv package to load the environment variables from the .env file
+dotenv.config();
 
 const PORT = 3000;
 const app = express();
@@ -27,13 +33,16 @@ app.get('/favicon.ico', (req, res) => res.status(204));
 
 // static routes
 
+//authenticaiton routes
+app.use('/auth', authRoutes);
+
 // app.use(express.static(path.resolve('index.html'));
 app.get('/', (req, res) => {
     res.status(200).send(express.static(path.resolve('index.html')));
 });
 
 // route handlers
-app.use('/api', uploadRouter);
+app.use('/api', uploadRoutes);
 
   //catch-all route handler for any requests to an unknown route
 app.use('*', (req, res) => res.sendStatus(404));

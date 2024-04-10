@@ -6,7 +6,10 @@ const memorizeDatabase = async (req, res, next) => {
     if (checkForReceipt) {
       console.log('req.file.originalname:', req.file.originalname, 'checkForReceipt.filename:', checkForReceipt.fileName);
       console.log('we found a match, check database to see if func was correctly implemented');
-      return res.status(200).send(checkForReceipt.receipt);
+      return res.status(200).send({
+        receiptArr: checkForReceipt.receipt,
+        receipt: null,
+      });
     } else {
       return next();
     }

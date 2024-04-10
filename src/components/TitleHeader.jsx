@@ -17,6 +17,7 @@ const App = () => (
     }}>
 <h1 style={{ fontSize: '24px' }}>AxoScan</h1>
     <Link id='link' to='/home'>Home</Link>
+    <Link id='link' to='/profile'>Profile</Link>
   </Card>
 );
 export default App;

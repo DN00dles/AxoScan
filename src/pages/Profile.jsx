@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import ReceiptBox from './ReceiptBox';
+import ReceiptList from './ReceiptList';
 import { useSelector } from 'react-redux';
 
 export default function Profile() {
+  //func moved to receipt list 
   const { receiptArr } = useSelector(state => state.receipt)
 
   // fetch receipt Array here if its first time
@@ -10,8 +12,9 @@ export default function Profile() {
   return (
     <div className="profile-container">
         <h1>Profile Page</h1>
-      <ReceiptBox
+      <ReceiptList
       //placeholder list = { receiptArr }
+        receiptArr={receiptArr}
       />
       
     </div>

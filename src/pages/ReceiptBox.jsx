@@ -1,16 +1,22 @@
 import React, { useState } from 'react';
 
-function ReceiptBox(){
-  const [count, setCount] = useState(0);
+function ReceiptBox({receiptName, receiptContent}){
+  const [collapsed, setCollapsed] = useState(true);
+  const toggleCollapse = () => {
+    setCollapsed(!collapsed);
+  }
   return(
+
     <div>
-      <h3>Receipt Box</h3>
-      <select name = "receipt-selector">
-      <option value="hello">Hello</option>
-      <option value="bye">bye</option>
-      </select>
+      <div onClick={toggleCollapse}>
+        <h3>{receiptName}</h3>
+        <button>{collapsed ? 'Expand' : 'Collapse'}</button>
       </div>
+      {!collapsed && <p>{receiptContent}</p>}
+      
+    </div>
   )
 }
 
 export default ReceiptBox; 
+//using store name & date of purchase as receipt names 

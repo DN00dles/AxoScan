@@ -1,5 +1,6 @@
 import React from 'react';
 import Home from './components/Home.jsx';
+import Profile from './pages/Profile.jsx';
 import './App.css';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 
@@ -12,6 +13,7 @@ function App() {
         <Routes>
           <Route index element={<Home />} />
           <Route path='/home' element={<Home />}/>
+          <Route path='/profile' element={<Profile />} />
         </Routes>
       </BrowserRouter>
     </>

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import ReceiptBox from './ReceiptBox';
-import ReceiptList from './ReceiptList';
+import ReceiptList from '../components/ReceiptList';
 import { useSelector, useDispatch } from 'react-redux';
 import { setReceiptArr } from '../slices/receiptSlice.js';
 import TitleHeader from '../components/TitleHeader.jsx';

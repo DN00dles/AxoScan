@@ -14,6 +14,8 @@ const initialState = {
   //   total: 600,
   // }]
 
+  username: '',
+  password: '',
   receiptArr: []
 
 };
@@ -22,8 +24,13 @@ export const receiptSlice = createSlice({
   name: 'receipt',
   initialState,
   reducers: {
+    setUsername(state, action) {
+      state.username = action.payload;
+    },
+    setPassword(state, action) {  
+      state.password = action.payload;
+    },
     setReceiptArr(state, action) {
-      console.log('RUNNING SET RECEIPTS')
       state.receiptArr = action.payload;
     },
     addReceipt(state, action) {
@@ -36,6 +43,8 @@ export const receiptSlice = createSlice({
 });
 
 export const {
+  setUsername,
+  setPassword,
   setReceiptArr,
   addReceipt,
   deleteReceipt,

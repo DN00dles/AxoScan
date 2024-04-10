@@ -20,6 +20,7 @@
     "axios": "^1.6.8",
     "bcrypt": "^5.1.1",
     "concurrently": "^8.2.2",
+    "cookie-parser": "^1.4.6",
     "cors": "git+https://github.com/expressjs/cors.git",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",

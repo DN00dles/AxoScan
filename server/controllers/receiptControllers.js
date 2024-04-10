@@ -23,6 +23,9 @@ const receiptController = {
 
       const response = await fetch('https://api.taggun.io/api/receipt/v1/verbose/file', options);
       const parsedData = await response.json();
+      //TODO: parsedData has EVERYTHING
+      // find the path to get store name, and anything else that might be useful!
+      console.log(parsedData);
       const productArray = parsedData.entities.productLineItems;
       res.locals.fileName = req.file.originalname;
       res.locals.array = productArray;

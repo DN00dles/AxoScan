@@ -31,12 +31,10 @@ function ReceiptBox({receiptName, receiptContent, receiptId}){
     }
   }
 
-  return(
-
+  return (
     <div className='receipt-box'>
       <div onClick={toggleCollapse} style={{ cursor: 'pointer'}}>
         <h3>{receiptName}</h3>
-        
         <button style={{
           fontSize: '16px',
           padding: '8px, 12px',
@@ -49,10 +47,16 @@ function ReceiptBox({receiptName, receiptContent, receiptId}){
         </button>
         <button onClick={handleDelete}>DELETE</button>
       </div>
-      {!collapsed && <div>{Items}</div>}
-      
+      {!collapsed && (
+        <div className="items-container">
+          {/* Wrap Items in a scrollable container */}
+          <div className="scroll-box">
+            {Items}
+          </div>
+        </div>
+      )}
     </div>
-  )
+  );
 }
 
 export default ReceiptBox; 

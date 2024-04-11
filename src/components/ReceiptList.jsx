@@ -14,6 +14,9 @@ export default function ReceiptList({ receiptArr }) {
             receiptName={el.fileName}
             receiptContent={el.receipt}
             receiptId={el._id}
+            merchantName={el.merchantName}
+            merchantAddress={el.merchantAddress}
+            merchantCoordinates={el.merchantCoordinates}
         />
         </div>
       )

@@ -2,6 +2,7 @@ import express from "express";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import User from "../models/userModel.js";
+import Session from "../models/sessionModel.js";
 
 const router = express.Router();
 
@@ -26,6 +27,23 @@ router.post("/signup", async (req, res) => {
       username: req.body.username,
       password: hashedPassword,
     });
+  }
+});
+
+//check session token
+router.get("/checkSession", async (req, res) => {
+  const token = req.cookies.JWT;
+  try {
+    const response = await Session.findOne({cookieId : token});
+    console.log(response);
+
+    if (!response) {
+      return res.status(403).json({login: 'failed'});
+    }
+
+    res.status(200).json({ login: "verified" });
+  } catch (error) {
+    res.status(400).send("Invalid Token");
   }
 });
 
@@ -68,11 +86,14 @@ router.post("/login", async (req, res) => {
         { username: user.username },
         process.env.ACCESS_TOKEN_SECRET
       );
-      console.log('a token,', accessToken);
-      res.cookie('JWT', accessToken);
-      res.status(200).json({login: 'success'});
+      console.log("a token,", accessToken);
+
+      await Session.create({ cookieId: accessToken });
+      res.cookie("JWT", accessToken);
+
+      res.status(200).json({ login: "success" });
     } else {
-      res.status(200).json({login: 'fail'});
+      res.status(200).json({ login: "fail" });
     }
   } catch (error) {
     res.status(500).send("Login failed");

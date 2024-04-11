@@ -9,6 +9,8 @@ import Pie from './Pie';
 import { useDispatch, useSelector } from 'react-redux';
 import { setReceiptArr } from '../slices/receiptSlice';
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 
 export default function Home() {
   const [hasUploaded, setHasUploaded] = useState(false);
@@ -19,6 +21,7 @@ export default function Home() {
   // helper function for grabbing receipts from DB
   const { receiptArr } = useSelector(state => state.receipt)
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const fetchReceipts = async () => {
     const response = await fetch('/api/receipts');
 
@@ -45,9 +48,10 @@ export default function Home() {
   const checkSession = async () => {
     const response = await fetch('/auth/checkSession');
     const data = await response.json();
-    if (!data.active) {
+    if (data.login === 'failed') {
       // Redirect to login page
-      window.location.href = '/login';
+      // window.location.href = '/login';
+      navigate('/login');
     }
   };
 

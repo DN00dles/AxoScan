@@ -35,17 +35,11 @@ function ReceiptBox({receiptName, receiptContent, receiptId}){
     <div className='receipt-box'>
       <div onClick={toggleCollapse} style={{ cursor: 'pointer'}}>
         <h3>{receiptName}</h3>
-        <button style={{
-          fontSize: '16px',
-          padding: '8px, 12px',
-          backgroundColor: '#1809ff',
-          color: '#fff',
-          border: '20px',
-          cursor: 'pointer'
-        }}>
+        <button className="expand-collapse-button"
+        >
           {collapsed ? 'Expand' : 'Collapse'}
         </button>
-        <button onClick={handleDelete}>DELETE</button>
+        <button className="delete-btn" onClick={handleDelete}>DELETE</button>
       </div>
       {!collapsed && (
         <div className="items-container">

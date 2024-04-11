@@ -31,19 +31,18 @@ export default function Profile() {
 
   return (
     <>
-    <div className="profile-container">
-      <TitleHeader className="header" />
-        <div className = "receiptlist">
-      <ReceiptList
-      //placeholder list = { receiptArr }
-        receiptArr={receiptArr}
-      />
+    <TitleHeader className="header" />
+      <div className="profile-container">
+      
+        <div className="receiptlist-container">
+          <ReceiptList receiptArr={receiptArr} />
+        </div>
       </div>
-    </div>
     <Footer />
     </>
   );
 }
+
 
 //Profile Page
 

@@ -22,3 +22,19 @@
   left: 0;
   width: 100%;
 }
+.content-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center horizontally */
+  justify-content: center; /* Center vertically */
+  height: 100%;
+  width: 100%;
+  padding-top: 100px;
+  padding-bottom: 150px;
+  margin-bottom: 100px;
+  padding-left: 0;
+  padding-right: 90px;
+  background-color: #f6cab1; 
+  border-radius: 10px; 
+  margin: 0;
+}

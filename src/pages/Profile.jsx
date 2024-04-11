@@ -47,18 +47,21 @@ export default function Profile() {
   }, []);
 
   return (
-    <div className='profile-container'>
-      <TitleHeader className='header' />
-      <h1>Profile Page</h1>
+    <>
+    <div className="profile-container">
+      <TitleHeader className="header" />
+        <div className = "receiptlist">
       <ReceiptList
-        //placeholder list = { receiptArr }
+      //placeholder list = { receiptArr }
         receiptArr={receiptArr}
       />
-
-      <Footer />
+      </div>
     </div>
+    <Footer />
+    </>
   );
 }
+
 
 //Profile Page
 

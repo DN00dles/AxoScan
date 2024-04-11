@@ -1,10 +1,11 @@
+
 #footer {
-  color: white;
-  background-color: #272727;
+  color: #faf2e2;
+  background-color: #11293f;
   border: none;
   border-radius: 0;
   width: 100%;
-  height: 60px;
+  height: 90px;
   display: flex;
   flex-direction: row;
   align-items: center;

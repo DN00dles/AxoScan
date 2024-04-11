@@ -6,7 +6,7 @@ import axolotl from '../assets/collab.png';
 
 const App = () => (
   <>
-  <Card className="header-card">
+  <Card className="header-card" style={{ borderRadius: 0 }}>
       <img className="header-img" src={axolotl} alt="axolotl eating ramen" />
     <h1>DNOOdles X AxoScan</h1>
     

@@ -45,17 +45,11 @@ function ReceiptBox({receiptName, receiptContent, receiptId, merchantName, merch
         <h3>{merchantName}</h3>
         <h3>{merchantAddress}</h3>
 
-        <button style={{
-          fontSize: '16px',
-          padding: '8px, 12px',
-          backgroundColor: '#1809ff',
-          color: '#fff',
-          border: '20px',
-          cursor: 'pointer'
-        }}>
+        <button className="expand-collapse-button"
+        >
           {collapsed ? 'Expand' : 'Collapse'}
         </button>
-        <button onClick={handleDelete}>DELETE</button>
+        <button className="delete-btn" onClick={handleDelete}>DELETE</button>
       </div>
       <div className='receipt-box-expand-contents' style={{display: 'flex'}}>
         {!collapsed && (

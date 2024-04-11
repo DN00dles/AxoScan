@@ -11,3 +11,16 @@
   align-items: center;
   justify-content: space-around;
 }
+.footer-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.footer-box img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%; /* Ensure the image is circular */
+  margin-bottom: 5px; /* Add some space between the image and name */
+}

@@ -7,6 +7,7 @@ import joPic from '../assets/jo.png';
 import tedPic from '../assets/ted.png';
 import jessePic from '../assets/jesse.png';
 import zackPic from '../assets/zack.png';
+import ramen from '../assets/brand.png';
 
 export default function Footer() {
   console.log('link: ', sofiaPic)
@@ -32,7 +33,8 @@ export default function Footer() {
   }
   return (
     <div id="footer">
-      <h2>DNOOdles</h2>
+      <h2>DNOOdles <img className="footer-img" src={ramen} alt="a bowl of ramen" /></h2>
+      
       <h4>Design Team:</h4>
       {res}
     </div>
@@ -41,6 +43,7 @@ export default function Footer() {
 
 const Box = ({ name, url, images }) => {
   return (
+    <div className="footer-box">
     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
       {/* <img src={images} alt={name} style={{ width: '60px', height: '60px', borderRadius: '0%', marginRight: '10px' }} /> */}
       <p style={{ marginRight: '10px' }}>{name} </p>
@@ -48,6 +51,7 @@ const Box = ({ name, url, images }) => {
         {/* <GithubOutlined style={{ color: 'white', fontSize: '24px' }} /> */}
         <img src={images} alt={name} style={{ width: '60px', height: '60px', borderRadius: '0%', marginRight: '10px' }} />
       </a>
+    </div>
     </div>
   );
 };

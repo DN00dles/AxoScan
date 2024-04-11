@@ -42,13 +42,19 @@ body,
 .l-header h1{
   color: #faf2e2;
 }
+.l-header h1{
+  color: #faf2e2;
+}
 
 /* login page */
 .l-header{
   padding: 20px;
   background: #11293f;
   text-align: center;
-  border-radius: -20px;
+  display: flex;
+  justify-content: center;
+  border: 10px;
+  
 }
 
 .l-header h1{
@@ -64,7 +70,7 @@ body,
   position: absolute;
   border-right: 50px solid #11293f;
   border-left: 50px solid #11293f;
-  border-bottom: 10px solid #11293f;
+  border-bottom: 50px solid #11293f;
   padding-bottom: 20;
 }
 
@@ -77,7 +83,6 @@ body,
   height: 100%;
   margin-top: -100px;
   color: #11293f;
-  border-radius: 20px;
   height: calc(100% - 50px);
 }
 /* Why are the buttons and inputs not the same size */
@@ -114,6 +119,15 @@ body,
 }
 
 /* home page */
+
+.link-div a {
+  color: #faf2e2; /* Light white color */
+  text-decoration: none; /* Remove underline */
+}
+
+.link-div a:hover {
+  color: #d13f25; /* Change color on hover */
+}
 
 .home-container {
   background-image: url(src/assets/background-img.png);
@@ -176,7 +190,6 @@ body,
   padding-bottom: 150px;
   margin-bottom: 100px;
   background-color: #f6cab1; 
-  border-radius: 10px; 
   margin: 0;
 
 }
@@ -184,9 +197,9 @@ body,
 .header-card{
   color: white;
   background-color: #11293f;
-  border: none;
+  border: 50px;
   width: 100%;
-  height: 70px;
+  height: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -207,8 +220,9 @@ body,
 .ant-card-body{
   display: flex;
   justify-content: space-between;
+  padding-bottom: 20px;
 }
-
+/* 
 .profile-container{
   height: 100vh;
   background-image: url(src/assets/background-img.png);
@@ -220,5 +234,102 @@ body,
   background-position: center;
   background-color: #f6cab1;
   height: 1000px;
+  display: flex;
+  justify-content: center; 
+  background-position: center;
+  align-items: center;
+}
+ */
+ .profile-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  height: 75vh; /* Set the height to 100% of the viewport height */
+  background-image: url(src/assets/background-img.png);
+  background-size: cover;
+  background-position: center;
+  
+}
 
+.receiptlist-container {
+  background-position: center;
+  background-color: #f6cab1;
+  max-height: 100vh; /* Set a maximum height */
+  height: 100vh;
+  width: 50%;
+  overflow-y: auto; /* Enable vertical scrolling */
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-content: space-between; /* Center vertically */
+  align-items: center;
+  padding-bottom: 30px;
+}
+
+.items-container{
+  margin: 10px;
+}
+
+.receiptList-div{
+  padding: 10px;
+  color:#11293f;
+  height: fixed;
+
+}
+
+/* -------------- Buttons -----------------*/
+.expand-collapse-button {
+  background-color: #2c596861; /* Default button background color */
+  color: #2c5968;
+  font-weight: bold;
+  border: 2px solid #2c5968; 
+  border-radius: 20px; 
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth transition */
+  padding: 10px;
+  width: 40%;
+  margin: 0px 5px;
+  
+}
+
+.expand-collapse-button:hover {
+  background-color: #718a92; /* Change background color on hover */
+}
+.items-container {
+  max-width: calc(100vw - 40px); /* Adjust padding and margins accordingly */
+  overflow-x: auto; /* Enable horizontal scrolling if content exceeds container width */
+  background-color: #faf2ed8d;
+}
+.delete-btn{
+  background-color: #ed6a535a; /* Default button background color */
+  color: #d13f25;
+  font-weight: bold;
+  border: 2px solid #d13f25; 
+  border-radius: 20px; 
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth transition */
+  padding: 10px;
+  width: 40%;
+  margin: 0px 5px;
+}
+.delete-btn:hover {
+  background-color: #d82e109b; /* Change background color on hover */
+}
+.scroll-box {
+  padding: 10px;
+  white-space: nowrap; /* Prevent text wrapping */
+}
+.receipt-list-div {
+  max-width: calc(100vw - 40px); /* Adjust padding and margins accordingly */
+  overflow-x: auto; /* Enable horizontal scrolling if content exceeds container width */
+}
+.receiptList-container {
+  max-width: calc(100vw - 40px); /* Adjust padding and margins accordingly */
+  overflow-x: auto; /* Enable horizontal scrolling if content exceeds container width */
+}
+
+.footer-img{
+  width: 50px;
+  height: 50px;
+  padding-left: -50px;
 }

@@ -22,12 +22,11 @@ router.use(
   })
 );
 
-
 // post request
 //TODO: REVIEW THIS, WE MAY BE ABLE TO JUST REPLACE WITH MONGO DB
 //MODEL.CREATE(FILE)
 router.post('/upload', upload.single('file'), memorize, receiptController.uploadReceipt, 
-searchArray.searched, receiptController.saveReceipt, 
+searchArray.searched, receiptController.getCoords, receiptController.saveReceipt, 
 (req, res) => res.status(200).json({
   receiptArr: res.locals.array,
   receipt: res.locals.receipt,

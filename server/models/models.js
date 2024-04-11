@@ -6,6 +6,7 @@ const receiptSchema = new Schema({
   fileName: {type: String, require: true},
   merchantName: {type: String, require: false},
   merchantAddress: {type: String, require: false},
+  merchantCoordinates: {type: Object, require: false},
   receipt: {type: Array, require: true},
     //date: new Date() 
 });

@@ -6,14 +6,328 @@ body,
   margin: 0;
   padding: 0;
   font-family: Arial, Helvetica, sans-serif;
+  color: #11293f;
 }
-/* 
-body {
+
+.profile-container{
+  color: #11293f;
+
+}
+
+.items-container {
+  max-height: 200px; /* Adjust the maximum height as needed */
+  overflow-y: auto; /* Enable vertical scrolling */
+  border: 1px solid #11293f;
+}
+
+.scroll-box {
+  padding: 10px;
+}
+
+/* Additional styles for individual items, if needed */
+/* Why is the scroll bar still white? */
+.scroll-box div {
+  padding: 5px;
+  border-bottom: 1px solid #11293f; /* Add bottom border to separate items */
+}
+
+/* login page */
+.l-header{
+  padding: 20px;
+  background: #11293f;
+  text-align: center;
+  
+}
+
+.l-header h1{
+  color: #faf2e2;
+}
+.l-header h1{
+  color: #faf2e2;
+}
+
+/* login page */
+.l-header{
+  padding: 20px;
+  background: #11293f;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  border: 10px;
+  
+}
+
+.l-header h1{
+  color: #faf2e2;
+}
+
+
+
+.loginBody{
+  height: 100%;
+  width: calc(100% - 100px);
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  border-right: 50px solid #11293f;
+  border-left: 50px solid #11293f;
+  border-bottom: 50px solid #11293f;
+  padding-bottom: 20;
+}
+
+
+.profile-cont{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  margin-top: -100px;
+  color: #11293f;
+  height: calc(100% - 50px);
+}
+/* Why are the buttons and inputs not the same size */
+.profile-cont input[type="text"],
+.profile-cont input[type="password"] {
+  width: 221px;
+  padding: 15px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 15px;
+  background-color: #2c596864; /* Transparent white background */
+  color: #2c5968;
+  font-weight: bold;
+  outline: none;
+  border: 2px solid #2c5968;
+}
+
+.loginButton {
+  padding: 15px;
+  background-color: #2c5968; /* Default button background color */
+  margin-bottom: 20px;
+  color: white;
+  font-weight: bold;
+  border: 2px solid #2c5968; 
+  border-radius: 20px; 
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth transition */
+  width: 221px;
+}
+
+.loginButton:hover{
+  background-color: #e6e7d3;
+  transition-delay: 0.15s;
+}
+
+/* home page */
+
+.link-div a {
+  color: #faf2e2; /* Light white color */
+  text-decoration: none; /* Remove underline */
+}
+
+.link-div a:hover {
+  color: #d13f25; /* Change color on hover */
+}
+
+.home-container {
+  background-size: cover;
+  background-position: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.homebody {
+  height: 100%;
+  width: 100%; /* Adjusted width to accommodate borders */
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  border-right: 50px solid #11293f;
+  border-left: 50px solid #11293f;
+  border-bottom: 10px solid #11293f;
+  padding-bottom: 20px;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+.header {
+  align-self: flex-start;
+}
+
+.progress-container {
+  position: relative;
+  height: 0;
+}
+
+.progress-bar {
+  position: absolute;
+  bottom: 0; 
+  left: 0;
+  width: 100%;
+}
+
+.link-div {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+  background-color: #2c5968; /* Bar color */
+  width: 100%;
+  height: 30px;
+  color: #faf2e2;
+}
+
+.content-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding-top: 100px;
+  padding-bottom: 150px;
+  margin-bottom: 100px;
+  background-color: #f6cab1; 
+  margin: 0;
+
+}
+
+.header-card{
+  color: white;
+  background-color: #11293f;
+  border: 50px;
+  width: 100%;
+  height: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
-} */
-#root {
-  background-color: #61616b;
-  /* background-color: rgb(200, 199, 198); */
+  padding: 50px; 
+}
+
+.header-img {
+  width: 100px;
+  height: 90px;
+  padding-right: 15px;
+}
+
+.link-div{
+  margin:0;
+  padding: 10;
+}
+
+.ant-card-body{
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 20px;
+}
+/* 
+.profile-container{
+  height: 100vh;
+  background-image: url(src/assets/background-img.png);
+  background-size: cover;
+  background-position: center;
+}
+
+.receiptlist{
+  background-position: center;
+  background-color: #f6cab1;
+  height: 1000px;
+  display: flex;
+  justify-content: center; 
+  background-position: center;
+  align-items: center;
+}
+ */
+ .profile-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  height: 75vh; /* Set the height to 100% of the viewport height */
+  background-size: cover;
+  background-position: center;
+  
+}
+
+.receiptlist-container {
+  background-position: center;
+  background-color: #f6cab1;
+  max-height: 100vh; /* Set a maximum height */
+  height: 100vh;
+  width: 70%;
+  overflow-y: auto; /* Enable vertical scrolling */
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-content: space-between; /* Center vertically */
+  align-items: center;
+  padding-bottom: 30px;
+}
+
+.items-container{
+  margin: 10px;
+}
+
+.receiptList-div{
+  padding: 10px;
+  color:#11293f;
+  height: fixed;
+
+}
+
+/* -------------- Buttons -----------------*/
+.expand-collapse-button {
+  background-color: #2c596861; /* Default button background color */
+  color: #2c5968;
+  font-weight: bold;
+  border: 2px solid #2c5968; 
+  border-radius: 20px; 
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth transition */
+  padding: 10px;
+  width: 40%;
+  margin: 0px 5px;
+  
+}
+
+.expand-collapse-button:hover {
+  background-color: #718a92; /* Change background color on hover */
+}
+.items-container {
+  max-width: calc(100vw - 40px); /* Adjust padding and margins accordingly */
+  overflow-x: auto; /* Enable horizontal scrolling if content exceeds container width */
+  background-color: #faf2ed8d;
+}
+.delete-btn{
+  background-color: #ed6a535a; /* Default button background color */
+  color: #d13f25;
+  font-weight: bold;
+  border: 2px solid #d13f25; 
+  border-radius: 20px; 
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth transition */
+  padding: 10px;
+  width: 40%;
+  margin: 0px 5px;
+}
+.delete-btn:hover {
+  background-color: #d82e109b; /* Change background color on hover */
+}
+.scroll-box {
+  padding: 10px;
+  white-space: nowrap; /* Prevent text wrapping */
+}
+.receipt-list-div {
+  max-width: calc(100vw - 40px); /* Adjust padding and margins accordingly */
+  overflow-x: auto; /* Enable horizontal scrolling if content exceeds container width */
+}
+.receiptList-container {
+  max-width: calc(100vw - 40px); /* Adjust padding and margins accordingly */
+  overflow-x: auto; /* Enable horizontal scrolling if content exceeds container width */
+}
+
+.footer-img{
+  width: 50px;
+  height: 50px;
+  padding-left: -50px;
 }

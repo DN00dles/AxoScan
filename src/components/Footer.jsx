@@ -2,37 +2,56 @@ import React from 'react';
 import { Card } from 'antd';
 import { GithubOutlined } from '@ant-design/icons';
 import '../styles/Footer.css';
+import sofiaPic from '../assets/sofia.png';
+import joPic from '../assets/jo.png';
+import tedPic from '../assets/ted.png';
+import jessePic from '../assets/jesse.png';
+import zackPic from '../assets/zack.png';
+import ramen from '../assets/brand.png';
 
 export default function Footer() {
-  const names = ['Sofia', 'Aiden', 'Austin', 'Sean', 'Dylan'];
+  console.log('link: ', sofiaPic)
+  const names = ['Sofia', 'Joseph', 'Zack', 'Jesse', 'Ted'];
   const urls = [
-    'https://github.com/orgs/AxoGroup/people/sarhiri',
-    'https://github.com/orgs/AxoGroup/people/AidenCarere',
-    'https://github.com/orgs/AxoGroup/people/InvectivusTaco',
-    'https://github.com/orgs/AxoGroup/people/sfryan95',
-    'https://github.com/orgs/AxoGroup/people/dsterling7',
+    'https://github.com/sarhiri',
+    'https://github.com/joeahn95',
+    'https://github.com/ZackVandiver',
+    'https://github.com/JesseWowczuk',
+    'https://github.com/TedPham397'
   ];
+  const images = [
+    sofiaPic,
+    joPic, 
+    zackPic,
+    jessePic,
+    tedPic
+  ]
   const res = [];
 
   for (let i = 0; i < names.length; i++) {
-    res.push(<Box key={crypto.randomUUID()} name={names[i]} url={urls[i]} />);
+    res.push(<Box key={crypto.randomUUID()} name={names[i]} url={urls[i]} images={images[i]} />);
   }
   return (
     <div id="footer">
-      <h2>AxoGroup</h2>
-      <h4>Design Team: </h4>
+      <h2>DNOOdles <img className="footer-img" src={ramen} alt="a bowl of ramen" /></h2>
+      
+      <h4>Design Team:</h4>
       {res}
     </div>
   );
 }
 
-const Box = ({ name, url }) => {
+const Box = ({ name, url, images }) => {
   return (
+    <div className="footer-box">
     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      {/* <img src={images} alt={name} style={{ width: '60px', height: '60px', borderRadius: '0%', marginRight: '10px' }} /> */}
       <p style={{ marginRight: '10px' }}>{name} </p>
       <a href={url}>
-        <GithubOutlined style={{ color: 'white', fontSize: '24px' }} />
+        {/* <GithubOutlined style={{ color: 'white', fontSize: '24px' }} /> */}
+        <img src={images} alt={name} style={{ width: '60px', height: '60px', borderRadius: '0%', marginRight: '10px' }} />
       </a>
+    </div>
     </div>
   );
 };

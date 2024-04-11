@@ -2,6 +2,7 @@ import fetch from 'node-fetch';
 import FormData from 'form-data';
 import Receipt from '../models/models.js';
 import { ObjectId } from 'mongodb';
+import { query } from 'express';
 
 const receiptController = {
   async uploadReceipt(req, res, next) {
@@ -37,6 +38,54 @@ const receiptController = {
     }
   },
 
+  // optional middleware, will essentially skip if address is not available on receipt
+  async getCoords(req, res, next) {
+    console.log('STARTING GETCOORDS')
+
+    // if no address available, skip this middleware
+    if (!res.locals.merchantAddress) return next();
+
+    console.log('ADDRESS FOUND, FINDING COORDS...')
+    const API_KEY = 'c32f34f30734402ab68f03a20bf5353a';
+    let queryText = 'https://api.geoapify.com/v1/geocode/search?text=';
+
+    // remove all ',' and split into word arr
+    const addressArr = res.locals.merchantAddress.replace(/\,/g, "").split(' ');
+
+    addressArr.forEach(word => {
+      queryText += `%20${word}`;
+    })
+
+    queryText += `&format=json&apiKey=${API_KEY}`;
+
+    console.log('queryText: ', queryText);
+
+    try {
+      const response = await fetch(queryText);
+      const data = await response.json();
+
+      // if no results, skip
+      if (data.results.length === 0) return next();
+
+      // just grab first result
+      const lon = data.results[0].lon;
+      const lat = data.results[0].lat;
+      
+      res.locals.merchantCoordinates = {
+        lon: lon,
+        lat: lat,
+      };
+      
+      console.log('coords: ', res.locals.merchantCoordinates);
+    }
+    catch (err) {
+      // don't let this middleware cause problems, if we can't get coordinates off address then skip middleware
+    }
+
+    return next();
+
+  },
+
   async saveReceipt(req, res, next) {
     console.log('STARTING SAVERECEIPT');
     try {
@@ -45,6 +94,7 @@ const receiptController = {
         fileName: res.locals.fileName, 
         merchantName: res.locals.merchantName,
         merchantAddress: res.locals.merchantAddress,
+        merchantCoordinates: res.locals.merchantCoordinates,
         receipt: res.locals.array 
       });
       res.locals.receipt = await response;

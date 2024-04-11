@@ -6,7 +6,7 @@ const App = ({ setHasUploaded }) => {
     setHasUploaded(false);
   };
   return (
-    <Button className="upload-button" onClick={handleClick} onClick={handleClick} style={{ marginBottom: '50px' }}>
+    <Button className="upload-button" onClick={handleClick} style={{ marginBottom: '50px' }}>
       Back to Upload
     </Button>
   );

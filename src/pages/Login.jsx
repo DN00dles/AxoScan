@@ -5,8 +5,8 @@ import { setUsername, setPassword } from '../slices/receiptSlice.js';
 import TitleHeader from '../components/TitleHeader.jsx';
 import Footer from '../components/Footer.jsx';
 import { useNavigate } from 'react-router-dom';
-
 import LoginHeader from './LoginHeader.jsx';
+import bImg from '../assets/background-img.png';
 
 
 export default function Login() {
@@ -43,7 +43,7 @@ export default function Login() {
 
   return (
     <>
-    <div className='loginBody'>
+    <div className='loginBody' style={{backgroundImage: `url(${bImg})`}}>
       <LoginHeader className='loginHeader'/>
         <div className="profile-cont">
             <h1 className='logTitle'>LOGIN</h1>

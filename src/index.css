@@ -61,10 +61,11 @@ body,
   color: #faf2e2;
 }
 
+
+
 .loginBody{
   height: 100%;
   width: calc(100% - 100px);
-  background-image: url(src/assets/background-img.png);
   background-size: cover;
   background-position: center;
   position: absolute;
@@ -130,7 +131,6 @@ body,
 }
 
 .home-container {
-  background-image: url(src/assets/background-img.png);
   background-size: cover;
   background-position: center;
   align-items: center;
@@ -143,7 +143,6 @@ body,
 .homebody {
   height: 100%;
   width: 100%; /* Adjusted width to accommodate borders */
-  background-image: url(src/assets/background-img.png);
   background-size: cover;
   background-position: center;
   position: absolute;
@@ -246,7 +245,6 @@ body,
   justify-content: flex-start; /* Center horizontally */
   align-items: center; /* Center vertically */
   height: 75vh; /* Set the height to 100% of the viewport height */
-  background-image: url(src/assets/background-img.png);
   background-size: cover;
   background-position: center;
   
@@ -257,7 +255,7 @@ body,
   background-color: #f6cab1;
   max-height: 100vh; /* Set a maximum height */
   height: 100vh;
-  width: 50%;
+  width: 70%;
   overflow-y: auto; /* Enable vertical scrolling */
   display: flex;
   justify-content: center; /* Center horizontally */

@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setReceiptArr } from '../slices/receiptSlice';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import bImg from '../assets/background-img.png';
 
 
 export default function Home() {
@@ -67,7 +68,7 @@ export default function Home() {
 
 
   return (
-    <div className="home-container">
+    <div className="home-container" style={{backgroundImage: `url(${bImg})`}}>
       <TitleHeader className="header" />
       <div className="content-container">
       {hasUploaded ? (

@@ -62,7 +62,7 @@ function ReceiptBox({receiptName, receiptContent, receiptId, merchantName, merch
         )}
 
         {!collapsed && merchantCoordinates &&
-          <iframe width="400" height="200" 
+          <iframe width="400" height="200" style={{ marginTop: '10px' }}  
             src={`https://api.maptiler.com/maps/basic-v2/?key=4QKXJlp5Aa2z67I3VAzx#15.0/${lat}/${lon}`}>
           </iframe>
         }

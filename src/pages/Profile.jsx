@@ -5,6 +5,7 @@ import { setReceiptArr } from "../slices/receiptSlice.js";
 import TitleHeader from "../components/TitleHeader.jsx";
 import Footer from "../components/Footer.jsx";
 import { useNavigate } from "react-router-dom";
+import bImg from '../assets/background-img.png';
 
 export default function Profile() {
   //func moved to receipt list
@@ -49,7 +50,7 @@ export default function Profile() {
   return (
     <>
     <TitleHeader className="header" />
-      <div className="profile-container">
+      <div className="profile-container" style={{backgroundImage: `url(${bImg})`}}>
       
         <div className="receiptlist-container">
           <ReceiptList receiptArr={receiptArr} />

@@ -7,6 +7,7 @@ import 'dotenv/config';
 import dotenv from 'dotenv';
 import cookieParser from 'cookie-parser';
 import jwt from 'jsonwebtoken';
+const __dirname = import.meta.dirname;
 
 //use dotenv package to load the environment variables from the .env file
 dotenv.config();
@@ -38,16 +39,21 @@ app.get('/favicon.ico', (req, res) => res.status(204));
 //authenticaiton routes
 app.use('/auth', authRoutes)
 
+// serve all static dist files on production build
+app.use('/assets', express.static(path.resolve(__dirname, '../dist/assets/')));
+
 // app.use(express.static(path.resolve('index.html'));
 app.get('/', (req, res) => {
-    res.status(200).send(express.static(path.resolve('index.html')));
-});
+  return res.status(200).sendFile(path.join(__dirname, '../dist/index.html'));
+});  
 
 // route handlers
 app.use('/api', uploadRoutes);
 
 //catch-all route handler for any requests to an unknown route
-app.use('*', (req, res) => res.sendStatus(404));
+app.get('*', (req, res) => {
+  return res.status(200).sendFile(path.join(__dirname, '../dist/index.html'));
+}); 
 
 // global error handler
 // eslint-disable-next-line no-unused-vars

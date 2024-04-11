@@ -6,7 +6,6 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import './index.css'
 
 function App() {
-  // const [count, setCount] = useState(0)
 
   return (
     <>

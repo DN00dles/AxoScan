@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { deleteReceipt } from '../slices/receiptSlice';
 
-function ReceiptBox({receiptName, receiptContent, receiptId}){
+function ReceiptBox({receiptName, receiptContent, receiptId, merchantName, merchantAddress}){
   const [collapsed, setCollapsed] = useState(true);
   const dispatch = useDispatch();
   const toggleCollapse = () => {
@@ -35,7 +35,8 @@ function ReceiptBox({receiptName, receiptContent, receiptId}){
 
     <div className='receipt-box'>
       <div onClick={toggleCollapse} style={{ cursor: 'pointer'}}>
-        <h3>{receiptName}</h3>
+        <h3>{merchantName}</h3>
+        <h3>{merchantAddress}</h3>
         
         <button style={{
           fontSize: '16px',

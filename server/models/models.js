@@ -4,6 +4,8 @@ import mongoose, { Schema } from 'mongoose';
 
 const receiptSchema = new Schema({
   fileName: {type: String, require: true},
+  merchantName: {type: String, require: false},
+  merchantAddress: {type: String, require: false},
   receipt: {type: Array, require: true},
     //date: new Date() 
 });

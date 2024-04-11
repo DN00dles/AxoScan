@@ -27,8 +27,10 @@ const receiptController = {
       // find the path to get store name, and anything else that might be useful!
       console.log(parsedData);
       const productArray = parsedData.entities.productLineItems;
-      res.locals.fileName = req.file.originalname;
       res.locals.array = productArray;
+      res.locals.merchantName = parsedData.merchantName.data;
+      res.locals.merchantAddress = parsedData.merchantAddress.data;
+      res.locals.fileName = req.file.originalname;
       return next();
     } catch (err) {
       return next({ log: 'Problem encountered fetching data from API', message: 'Could not retrieve receipt data' });
@@ -39,7 +41,12 @@ const receiptController = {
     console.log('STARTING SAVERECEIPT');
     try {
       console.log(res.locals.array);
-      const response = await Receipt.create({ fileName: res.locals.fileName, receipt: res.locals.array });
+      const response = await Receipt.create({ 
+        fileName: res.locals.fileName, 
+        merchantName: res.locals.merchantName,
+        merchantAddress: res.locals.merchantAddress,
+        receipt: res.locals.array 
+      });
       res.locals.receipt = await response;
       return next();
     } catch (err) {

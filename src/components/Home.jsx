@@ -3,6 +3,7 @@ import DragAndDrop from './DragAndDrop';
 import Instructions from './Instructions';
 import TitleHeader from './TitleHeader';
 import '../styles/Home.css';
+import '../styles/Home.css';
 import Footer from './Footer';
 import UploadButton from './UploadButton';
 import Pie from './Pie';
@@ -68,7 +69,7 @@ export default function Home() {
   return (
     <div className="home-container">
       <TitleHeader className="header" />
-
+      <div className="content-container">
       {hasUploaded ? (
         <>
           <Pie lineItems={lineItems} />
@@ -82,8 +83,9 @@ export default function Home() {
       )}
 
       <DragAndDrop setHasUploaded={setHasUploaded} setLineItems={setLineItems} />
-      
+      </div>
       <Footer />
     </div>
+
   );
 }
